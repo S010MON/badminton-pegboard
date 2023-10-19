@@ -1,0 +1,23 @@
+<div class="col-md-3 court">
+    <table class="table table-auto">
+        <caption>Court {{loop.index}}</caption>
+        <tr>
+            <td>a</td>
+            <td>{{court.a}}</td>
+        </tr>
+        <tr>
+            <td>b</td>
+            <td>{{court.b}}</td>
+        </tr>
+        <tr>
+            <td>c</td>
+            <td>{{court.c}}</td>
+        </tr>
+        <tr>
+            <td>d</td>
+            <td>{{court.d}}</td>
+        </tr>
+    </table>
+    <button hx-get="/court/{{loop.index0}}"
+            hx-target="">clear</button>
+</div>

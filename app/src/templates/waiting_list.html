@@ -1,0 +1,51 @@
+<div id="waiting-list">
+<div class="row">
+    <div class="col-md-3">
+        <table class="table table-auto">
+            <caption>Next</caption>
+            {% for player in data.next %}
+            <tr class="player-row">
+                <td>{{player}}</td>
+                <td>
+                    <button hx-put="/unselect/{{player}}" hx-target="#waiting-list"
+                    >&#8595;</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <table class="table table-auto">
+            <caption>Waiting</caption>
+            {% for player in data.waiting %}
+            <tr class="player-row">
+                <td>{{player}}</td>
+                <td>
+                    <button hx-put="/select/{{player}}" hx-target="#waiting-list"
+                    >&#8593;
+                    </button>
+                </td>
+                <td>
+                    <button hx-delete="/player/{{player}}" hx-target="closest .player-row"
+                    >X
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <form>
+            <input type="text"
+                   name="name"
+                   placeholder="name"
+                   required
+            />
+            <button type="submit" hx-post="/player" hx-target="#waiting-list" hx-swap="outerHTML"
+            >add
+            </button>
+        </form>
+    </div>
+</div>
+</div>

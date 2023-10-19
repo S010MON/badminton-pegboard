@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+
+  ### API CONTAINER ###
+  app:
+    build: ./app           # Where the Dockerfile is stored
+    restart: always
+
+    volumes:
+      - ./app:/app
+
+    ports:
+      - "127.0.0.1:5001:5000"
